@@ -1,0 +1,20 @@
+{% extends 'my_instagram/base.html' %}
+
+
+{% block content %}
+
+{{block.super}}
+{% for image in images %}
+
+        <div class="card" style="width:400px">
+                <img class="card-img-top" src="{% if image.photo_image %}{{ image.photo_image.url }}{% else %}#{% endif %}" alt="Gallery Image"></a>  
+        <div class="card-body">
+          <h4 class="card-title">{{image.image_name}}</h4>
+          <h4 class="card-title">{{image.pub_date }}</h4>
+          <p class="card-text">{{image.image_caption}}</p>
+          <a href="#" class="btn btn-primary">Visit Profile</a>
+        </div>
+      </div>
+
+  {% endfor %}
+ {% endblock %}
