@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'my_instagram.apps.MyInstagramConfig',
     'users.apps.UsersConfig',
     'bootstrap4',
+    'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -129,3 +130,5 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CRISPY_TEMPLATE_PACK='bootstrap4'
