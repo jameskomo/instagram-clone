@@ -4,7 +4,7 @@ import datetime as dt
 # Create your models here.
 class Profile(models.Model):
     profile_photo = models.ImageField(default="defaultprofile.jpeg", upload_to = 'images/')
-    bio = models.TextField()
+    bio = models.TextField(null=False)
     profile_name=models.CharField(max_length=60)
     # image_category =  models.ForeignKey(Image, on_delete=models.PROTECT)
 
