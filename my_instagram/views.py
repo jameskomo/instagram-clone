@@ -4,7 +4,11 @@ from .models import Image, Profile
 
 # Create your views here.
 def home(request):
-    return render(request, ('my_instagram/base.html'))
+    context = {
+        'images':Image.objects.all(),
+        'profiles': Profile.objects.all()
+    }
+    return render(request, ('my_instagram/base.html'), context)
 
 def profile(request):
     context = {
