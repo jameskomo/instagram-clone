@@ -1,16 +1,8 @@
 from django.db import models
 import datetime as dt 
+from users.models import Profile
 
 # Create your models here.
-class Profile(models.Model):
-    profile_photo = models.ImageField(default="defaultprofile.jpeg", upload_to = 'images/')
-    bio = models.TextField(null=False)
-    profile_name=models.CharField(max_length=60)
-    # image_category =  models.ForeignKey(Image, on_delete=models.PROTECT)
-
-    def __str__(self):
-        return self.profile_name
-
 class Image(models.Model):    
     image_name=models.CharField(max_length=60)
     image_caption = models.TextField()

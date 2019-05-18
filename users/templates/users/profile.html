@@ -2,6 +2,6 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {{ block.super }}
-<img class="rounded-circle" src="{{user.profile.image.url}}" alt="Profile image">
+<img class="rounded-circle" src="{{user.profile.profile_image.url}}" alt="Profile image">
 <h3>Username: {{user.username}}</h3>
 {% endblock content %}
