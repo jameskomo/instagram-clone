@@ -1,6 +1,7 @@
 {% extends 'my_instagram/base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+{{ block.super }}
 <div class="content-section">
     <form style="margin-left: 2;" method="POST">
         {% csrf_token %}
