@@ -39,7 +39,7 @@ def search(request):
 
     if 'profile' in request.GET and request.GET["profile"]:
         search_term = request.GET.get("profile")
-        searched_profiles = user.profile.search_by_user(search_term)
+        searched_profiles = user.search_by_username(search_term)
         message = f"{search_term}"
 
         return render(request, 'my_instagram/search.html',{"message":message,"profiles": searched_profiles})
