@@ -7,6 +7,7 @@ from . import views
 urlpatterns=[
     path('', views.home, name='my_instagram-home'),
     path('profile/', views.home, name='my_instagram-profile'),
+    path('new_post/', views.new_post, name='my_instagram-new-post'),
     
 ]
 if settings.DEBUG:

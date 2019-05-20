@@ -23,3 +23,5 @@ class ProfileUpdateForm(forms.ModelForm):
         model=Profile
         fields=['profile_image', 'bio']
 
+
+

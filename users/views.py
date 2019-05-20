@@ -47,3 +47,16 @@ def search(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'my_instagram/search.html',{"message":message})
+
+def register(request):
+    if request.method=='POST':
+        form=UserRegisterForm(request.POST)
+        if form.is_valid():
+            username=form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username} successfully!. Login')
+            form.save()
+            return redirect('login')
+    else:
+        form=UserRegisterForm()
+    return render (request, 'users/register.html', {'form': form})
+

@@ -1,6 +1,6 @@
-# K.O.M.O Gram
+# Instagram Clone
 
-![Image Gallery](https://socialblade.com/blog/wp-content/uploads/2017/06/instagram-post-from-desktop.jpg)
+![Instagram Clone](https://socialblade.com/blog/wp-content/uploads/2017/06/instagram-post-from-desktop.jpg)
 
 This is a clone of the popular photo app Instagram made in Python using Django Framework. Users are able to sign in to the application to start using, upload their pictures to the application, see their profile with all their pictures, follow other users and see their pictures on their timeline and like a picture and leave a comment on it.
 
