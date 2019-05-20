@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from .email import send_welcome_email
 from django.contrib import messages
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
@@ -8,8 +9,11 @@ def register(request):
         form=UserRegisterForm(request.POST)
         if form.is_valid():
             username=form.cleaned_data.get('username')
+            email = form.cleaned_data['email']
             messages.success(request, f'Account created for {username} successfully!. Login')
+            recipient = Profile(name = name,email =email)
             form.save()
+            send_welcome_email(name,email)
             return redirect('login')
     else:
         form=UserRegisterForm()
