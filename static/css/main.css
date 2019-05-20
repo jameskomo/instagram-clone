@@ -8,3 +8,8 @@ body {
 #main-page{
   background: url("/media/images/page-background2.jpg") 50% 0 no-repeat fixed; 
   }
+
+#images-display {
+  height: 40%;
+  width: 40%;
+}

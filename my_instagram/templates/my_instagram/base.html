@@ -19,9 +19,9 @@
 <body id="main-page">
       {% block content %}
     
-    <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
+    <nav class="navbar navbar-dark bg-light navbar-expand-lg ">
 
-        <a class="navbar-brand" href="{%url 'my_instagram-home' %}">K.O.M.O Gram</a>
+        <a style="color: blue; " class="navbar-brand" href="{%url 'my_instagram-home' %}">K.O.M.O Gram</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -56,32 +56,60 @@
     <div class="alert alert-warning">{{message}}</div>
     {% endfor %}
   {% endif %}
-    {% for image in images %}
+      <div class="container-fluid">
+        <!-- displaying images -->
+        <div class="row">
+            {% for image in images %}
+    
+            <div class="col-md-3">
+                <!-- modal button -->
+                <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{image.id}}">
+                    <img src="{% if image.photo_image %}{{ image.photo_image.url }}{% else %}#{% endif %}" alt="Instagram Image" width="300" height="300">
+                    <p>{{image.image_name }}</p>
+                </button>
+                <br>
+    
+                <!-- modal -->
+                <!-- modal content -->
+    <div class="modal" id="myModal{{image.id}}" role="dialog">
+        <div class="modal-dialog">
+    
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h3>Posted by: {{user.username}}</h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>              
+                    
+                </div>
+    
+                <div class="modal-body">
+                    <img src="{{image.photo_image.url }}" alt="" width="100%" height="100%">
+                    <br>
+                    <p><strong>Image Name: </strong>{{image.image_name }}</p>
+                    <p><strong>Caption: </strong>{{ image.image_caption }}</p>
+                    <br>
+                    <h5 class="modal-title"><strong>Posted On: </strong>{{ image.pub_date }}</h5>
+                    <br>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<div style="margin: 5%;" class="card text-center">
-    <div class="card-header">
-       <a href="" alt="Instagram image"><img class="rounded-circle" src="{{image.photo_image.url}}"</a>
-    </div>
-    <div class="card-body">
-        <h4 class="card-title">Posted by: {{user.username}}</h4>
-        <p class="card-text">Caption: {{image.image_caption}}</p>
-        <h4 class="card-title">Posted on: {{image.pub_date }}</h4>
+    <!-- <div class="row">
         
-      <a href="#" class="btn btn-primary">Like</a>
-      
-    </div>
-   
-    <div class="card-footer text-muted">
-        <h3>Comments</h3>
-        <p class="card-text">Comments: {{image.image_comments}}</p>
-        <p class="card-text">Comments: {{image.image_comments.pub_date}}</p>
-        <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
-        <br>
-        <a href="#" class="btn btn-primary">Comment</a>
-        
-    </div>
-  </div>
+        <div class="col-md-6">
 
+            <div class="card" style="width: 20rem;">
+                <img class="card-img-top" src="{{image.photo_image.url}}" alt="Instagram Images">
+                <div class="card-body">
+                  <h4 class="card-title">Posted by: {{user.username}}</h4>
+                  <p class="card-text">Posted on: {{image.pub_date }}.</p>
+                </div>
+              </div>
+      </div>
+    </div> -->
+<!-- Card -->
   {% endfor %}
      {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
