@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt 
 from users.models import Profile
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Image(models.Model):    
@@ -22,6 +23,9 @@ class Image(models.Model):
     
     def update_image(self, **kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
+    
+    def update_caption(self, **kwargs):
+        self.objects.filter(image_caption).update(**kwargs)
 
     class Meta:
         ordering = ['pub_date']    

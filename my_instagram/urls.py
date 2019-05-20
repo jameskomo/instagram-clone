@@ -7,7 +7,7 @@ from . import views
 urlpatterns=[
     path('', views.home, name='my_instagram-home'),
     path('profile/', views.home, name='my_instagram-profile'),
-    url(r'^search/', views.search, name='my_instagram-search')
+    
 ]
 if settings.DEBUG:
     urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

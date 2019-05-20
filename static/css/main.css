@@ -5,3 +5,6 @@ h1
 body {
   background-color: #f1f1f1;
 }
+#main-page{
+  background: url("/media/images/page-background2.jpg") 50% 0 no-repeat fixed; 
+  }

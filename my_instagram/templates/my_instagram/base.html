@@ -16,14 +16,8 @@
     {% endblock %}
     
 </head>
-<body>
-    {% if messages %}
-      {% for message in messages %}
-      <div class="alert alert-warning">{{message}}</div>
-      {% endfor %}
-    {% endif %}
-
-    {% block content %}
+<body id="main-page">
+      {% block content %}
     
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg ">
 
@@ -47,7 +41,7 @@
         <a class="nav-tem nav-link" href="{% url 'login'%}">Log In</a>
         <a class="nav-tem nav-link" href="{% url 'register'%}">Register</a>
       {% endif %}
-          <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'my_instagram-search' %}">
+          <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'users-search' %}">
             <input class="form-control mr-sm-2" type="search" placeholder="Search Profile" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search <i class="fas fa-search"></i></button>
           </form>
@@ -56,20 +50,35 @@
 
     
     {%endblock%}
+    
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-warning">{{message}}</div>
+    {% endfor %}
+  {% endif %}
     {% for image in images %}
 
-<div style="margin: 10%;" class="card text-center">
+<div style="margin: 5%;" class="card text-center">
     <div class="card-header">
-        <img class="rounded-circle" src="{{image.photo_image.url}}" alt="Instagram image">
+       <a href="" alt="Instagram image"><img class="rounded-circle" src="{{image.photo_image.url}}"</a>
     </div>
     <div class="card-body">
-        <h4 class="card-title">Posted by: {{user.username}}</h4><a href="#" class="btn btn-primary">Follow</a>
+        <h4 class="card-title">Posted by: {{user.username}}</h4>
         <p class="card-text">Caption: {{image.image_caption}}</p>
-        <p class="card-text">Caption: {{image.image_comments}}</p>
+        <h4 class="card-title">Posted on: {{image.pub_date }}</h4>
+        
       <a href="#" class="btn btn-primary">Like</a>
+      
     </div>
+   
     <div class="card-footer text-muted">
-        <h4 class="card-title">Posted on: {{image.pub_date }}</h4
+        <h3>Comments</h3>
+        <p class="card-text">Comments: {{image.image_comments}}</p>
+        <p class="card-text">Comments: {{image.image_comments.pub_date}}</p>
+        <textarea class="form-control" id="exampleFormControlTextarea4" rows="3"></textarea>
+        <br>
+        <a href="#" class="btn btn-primary">Comment</a>
+        
     </div>
   </div>
 

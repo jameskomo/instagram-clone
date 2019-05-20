@@ -16,16 +16,5 @@ def profile(request):
     }
     return render(request, ('my_instagram/profile.html'), context)
 
-def search(request):
 
-    if 'profile' in request.GET and request.GET["profile"]:
-        search_term = request.GET.get("profile")
-        searched_profiles = Profile.search_by_profile_name(search_term)
-        message = f"{search_term}"
-
-        return render(request, 'my_instagram/search.html',{"message":message,"profiles": searched_images})
-
-    else:
-        message = "You haven't searched for any term"
-        return render(request, 'my_instagram/search.html',{"message":message})
 
