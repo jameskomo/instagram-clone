@@ -16,6 +16,8 @@ class Profile(models.Model):
     def update_profile(self, **kwargs):
         self.objects.filter(id = self.pk).update(**kwargs)
 
+    
+
     def __str__(self):
         return f'{self.user.username} Profile'
 

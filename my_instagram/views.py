@@ -29,12 +29,12 @@ def new_post(request):
             post.user=current_user
             np_form.save()
             messages.success(request, f'Post Made Successfully!')
-        return redirect('my_instagram-home')
+        return redirect('my_instagram-new-post')
     else:
         np_form=NewPostForm(instance=request.user)
         # p_form=ProfileUpdateForm(instance=request.user.profile)
     context={
         'np_form' : np_form,
     }
-    return render(request, 'my_instagram/base.html', context)
+    return render(request, 'my_instagram/new_post.html', context)
 

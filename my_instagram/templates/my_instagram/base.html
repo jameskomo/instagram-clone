@@ -1,5 +1,4 @@
 {% load bootstrap4 %}
-{% load crispy_forms_tags %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -62,22 +61,7 @@
     {% endfor %}
   {% endif %}
   <!-- Bootstrap Utility -->
-  <!-- Posting Form -->
-  <div  class="card-body">
-    <form method="POST" enctype="multipart/form-data" action="{% url 'my_instagram-new-post'%}">
-        {% csrf_token %}
-        <fieldset class="form-group">
-            <legend class="border-bottom mb-4"><strong>Share Post</strong> </legend>
-            {{np_form|crispy}}
-            
-        </fieldset>
-        <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Post</button>
-        </div>
-    </form>
-</div>
-
-  <!-- Posting Form End -->
+  
   <div class="container">
     {% for image in images %}
     <div class="row">
@@ -89,7 +73,12 @@
             <div class="card-body py-1">
                 <h5 class="card-text">{{image.image_name}}</h5>
                 <p class="card-text">{{image.image_caption}}</p>
-                <a href="#" class="btn btn-sm btn-primary">Comment</a>
+                <ul>
+                  <i class="far fa-comment"></i>
+                  <i class="far fa-heart"></i>
+                </ul>
+                <a href="{% url 'profile'%}">Delete</a>
+                <a href="{% url 'profile'%}">Update</a>
             </div>
         </div>
     </div>
