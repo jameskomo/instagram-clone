@@ -28,7 +28,7 @@ class Image(models.Model):
         self.objects.filter(image_caption).update(**kwargs)
 
     class Meta:
-        ordering = ['pub_date']    
+        ordering = ['-pub_date']    
 
     @classmethod
     def search_by_profile(cls,search_term):

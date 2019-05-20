@@ -12,7 +12,7 @@
     {% block styles %}
        {% bootstrap_css %}
        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-       <link href="https://fonts.googleapis.com/css?family=Engagement|Qwigley&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Pacifico|Rokkitt&display=swap" rel="stylesheet">
        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
        
     {% endblock %}
@@ -31,12 +31,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a style="font-family: 'Engagement', cursive; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-home' %}">Instagram <span class="sr-only">(current)</span></a>
+              <a style="font-family: 'Pacifico', cursive; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-home' %}">Instagram <span class="sr-only">(current)</span></a>
             </li>
-            <a style="font-family: 'Engagement', cursive; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-new-post' %}">Post <span class="sr-only">(current)</span></a>
+            <a style="font-family: 'Rokkitt', serif; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-new-post' %}">Post <span class="sr-only">(current)</span></a>
             <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'users-search' %}">
               <input class="form-control mr-sm-2" type="search" placeholder="Search Profile" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search <i class="fas fa-search"></i></button>
+              <button class="btn btn-light my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i></button>
             </form>
           </ul>
           
@@ -63,7 +63,7 @@
   {% endif %}
   <!-- Bootstrap Utility -->
   
-  <div class="container">
+  <div style="margin-top: 2%;" class="container">
     {% for image in images %}
     <div class="row">
         <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 mx-auto" style="font-family: 'Open Sans', sans-serif; padding:0;">
