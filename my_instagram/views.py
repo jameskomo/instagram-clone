@@ -6,6 +6,7 @@ from .forms import NewPostForm
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required
 def home(request):
     context = {
         'images':Image.objects.all(),
@@ -37,4 +38,18 @@ def new_post(request):
         'np_form' : np_form,
     }
     return render(request, 'my_instagram/new_post.html', context)
+
+def search_image(request):
+
+    if 'image' in request.GET and request.GET["image"]:
+        search_term = request.GET.get("image")
+        searched_images = user.search_by_image_name(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'users/search.html',{"message":message,"images": searched_profiles})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'users/search.html',{"message":message})
+
 

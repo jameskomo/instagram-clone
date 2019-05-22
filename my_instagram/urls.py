@@ -8,6 +8,7 @@ urlpatterns=[
     path('home/', views.home, name='my_instagram-home'),
     path('profile/', views.home, name='my_instagram-profile'),
     path('new_post/', views.new_post, name='my_instagram-new-post'),
+    url(r'^search/', views.search_image, name='images-search'),
     
 ]
 if settings.DEBUG:

@@ -20,7 +20,7 @@ class ImageTestClass(TestCase):
         Image.objects.all().delete()
         Profile.objects.all().delete()
     
-class ProdileTestClass(TestCase):
+class ProfileTestClass(TestCase):
     # Set up method
     def setUp(self):
         self.profile1= Profile(profile_image='media/images/food.jpg', bio='here to create')

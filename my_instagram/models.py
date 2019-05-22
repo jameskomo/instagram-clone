@@ -31,13 +31,21 @@ class Image(models.Model):
         ordering = ['-pub_date']    
 
     @classmethod
-    def search_by_profile(cls,search_term):
-        profiles = cls.objects.filter(profile__icontains=search_term)
+    def search_profile(cls,search_term):
+        profiles = cls.objects.filter(Q(username__username=search_term))
         return profiles
     @classmethod
     def todays_images(cls,date):
         images = cls.objects.filter(pub_date__date = date)
         return images
+
+class Comment(models.Model):
+    comment_content = models.CharField(max_length=300)
+    username = models.ForeignKey(User,on_delete=models.CASCADE)
+    image = models.ForeignKey(Image,on_delete=models.CASCADE)
+
+    def save_comment(self):
+        self.save()
 
     
 
