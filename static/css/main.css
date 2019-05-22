@@ -5,9 +5,9 @@ h1
 body {
   background-color: #f1f1f1;
 }
-/* #main-page{
-  background: url("/media/images/page-background2.jpg") 50% 0 no-repeat fixed; 
-  } */
+#main-page{
+  background-image: linear-gradient( 113.5deg,  rgba(234,234,234,1) 22.3%, rgba(201,234,211,1) 56.6%, rgba(255,180,189,1) 90.9% );
+  }
 
 #images-display {
   height: 40%;

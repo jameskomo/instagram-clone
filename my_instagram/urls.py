@@ -5,7 +5,7 @@ from django.conf.urls.static import static
 from . import views
 
 urlpatterns=[
-    path('', views.home, name='my_instagram-home'),
+    path('home/', views.home, name='my_instagram-home'),
     path('profile/', views.home, name='my_instagram-profile'),
     path('new_post/', views.new_post, name='my_instagram-new-post'),
     
