@@ -2,8 +2,9 @@
 {% load crispy_forms_tags %}
 {% block content %}
 {{ block.super }}
+
 <!-- Posting Form -->
-<div  class="card-body">
+<div style="margin: 30%; margin-top: 2%; border-color: black; "  class="card-body">
     <form method="POST" enctype="multipart/form-data" action="{% url 'my_instagram-new-post'%}">
         {% csrf_token %}
         <fieldset class="form-group">

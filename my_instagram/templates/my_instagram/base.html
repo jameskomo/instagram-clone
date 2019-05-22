@@ -33,16 +33,17 @@
             <li class="nav-item active">
               <a style="font-family: 'Pacifico', cursive; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-home' %}">Instagram <span class="sr-only">(current)</span></a>
             </li>
-            <a style="font-family: 'Rokkitt', serif; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-new-post' %}">Post <span class="sr-only">(current)</span></a>
+            
             <form class="form-inline my-2 my-lg-0" role="search" action="{% url 'users-search' %}">
               <input class="form-control mr-sm-2" type="search" placeholder="Search Profile" aria-label="Search">
               <button class="btn btn-light my-2 my-sm-0" type="submit"> <i class="fas fa-search"></i></button>
             </form>
+            <a style="font-family: 'Rokkitt', serif; color:black; font-size: 30px;" class="nav-link" href="{%url 'my_instagram-new-post' %}">Post <span class="sr-only">(current)</span></a>
           </ul>
           
           {% if user.is_authenticated %}
           
-          <a class="nav-item nav-link" href="{% url 'profile'%}"><i class="far fa-heart"></i></a>
+          <a class="nav-item nav-link" href="{% url 'profile'%}"><i style="size: 40px;" class="far fa-heart"></i></a>
           <a class="nav-item nav-link" href="{% url 'profile'%}"><i class="far fa-user"></i></a>
         <a class="nav-item nav-link" href="{% url 'logout'%}">LogOut</a>
       {% else %}
@@ -67,19 +68,20 @@
     {% for image in images %}
     <div class="row">
         <div class="card col-xs-12 col-sm-12 col-md-5 col-lg-5 mx-auto" style="font-family: 'Open Sans', sans-serif; padding:0;">
-            <div class="card-header px-0 py-0">
-                <img class="card-img-top img-responsive" src="{{image.photo_image.url}}" alt="{{post.image_name}}">
+            <button type="button" class="btn btn-light btn-lg" data-toggle="modal" data-target="#myModal{{image.id}}">  
+          <div class="card-header px-0 py-0">
+                <img class="card-img-top img-responsive" src="{{image.photo_image.url}}" alt="{{image.image_name}}">
             </div>
  
             <div class="card-body py-1">
                 <h5 class="card-text">{{image.image_name}}</h5>
-                <p class="card-text">{{image.image_caption}}</p>
                 <ul>
                   <i class="far fa-comment"></i>
                   <i class="far fa-heart"></i>
                 </ul>
                 <a href="{% url 'profile'%}">Delete</a>
                 <a href="{% url 'profile'%}">Update</a>
+                </button>
             </div>
         </div>
     </div>
